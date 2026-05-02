@@ -2,6 +2,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
+  max-width: 100%;
+}
+
+html {
+  scroll-padding-top: 70px;
 }
 
 body {
@@ -16,6 +22,10 @@ body {
   align-items: center;
   padding: 20px 40px;
   background-color: #1a1a1a;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
 }
 
 .logo {
@@ -451,6 +461,34 @@ footer {
     flex-direction: column;
   }
 
+  .testimonials-grid {
+    grid-template-columns: unset;
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 20px;
+    padding-bottom: 16px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .testimonial-card {
+    min-width: 280px;
+   scroll-snap-align: start;
+  }
+
+  #testimonials {
+    padding: 60px 16px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+  }
+
+  .back-to-top {
+    bottom: 20px;
+    right: 20px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -468,4 +506,230 @@ footer {
     gap: 16px;
   }
 
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #testimonials {
+    padding: 60px 20px;
+  }
+
+  .testimonial-card {
+    padding: 24px 16px;
+  }
+
+  #services {
+    padding: 60px 20px;
+  }
+
+  #about {
+    padding: 60px 20px;
+  }
+
+  #contact {
+    padding: 60px 20px;
+  }
+
+  footer {
+    padding: 40px 20px 20px;
+  }
+
+}
+
+#testimonials {
+  padding: 80px 40px;
+  background-color: #1a1a1a;
+  text-align: center;
+  overflow: hidden;
+}
+
+#testimonials .section-header h2 {
+  color: #fff;
+}
+
+#testimonials .section-header p {
+  color: #888;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.testimonial-card {
+  background-color: #242424;
+  padding: 40px 30px;
+  border-radius: 4px;
+  text-align: left;
+  border-top: 3px solid #c9a84c;
+  transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-6px);
+}
+
+.stars {
+  color: #c9a84c;
+  font-size: 20px;
+  margin-bottom: 16px;
+  letter-spacing: 2px;
+}
+
+.testimonial-card p {
+  color: #aaa;
+  font-size: 14px;
+  line-height: 1.8;
+  margin-bottom: 24px;
+  font-style: italic;
+}
+
+.client {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.client-avatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background-color: #c9a84c;
+  color: #1a1a1a;
+  font-weight: bold;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.client h4 {
+  color: #fff;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.client span {
+  color: #666;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+footer {
+  background-color: #111;
+  color: #555;
+  padding: 60px 40px 20px;
+}
+
+.footer-container {
+  display: flex;
+  gap: 60px;
+  max-width: 1100px;
+  margin: 0 auto 40px;
+  align-items: flex-start;
+}
+
+.footer-brand {
+  flex: 1;
+}
+
+.footer-logo {
+  color: #c9a84c;
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+}
+
+.footer-brand p {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+
+.social-links {
+  display: flex;
+  gap: 16px;
+}
+
+.social-links a {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #1a1a1a;
+  color: #666;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.social-links a:hover {
+  background-color: #c9a84c;
+  color: #1a1a1a;
+}
+
+.footer-map {
+  flex: 1;
+  border-radius: 4px;
+  overflow: hidden;
+  opacity: 0.85;
+}
+
+.footer-bottom {
+  border-top: 1px solid #1a1a1a;
+  padding-top: 20px;
+  text-align: center;
+  font-size: 13px;
+  line-height: 2;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Scroll animations */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Back to top button */
+.back-to-top {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background-color: #c9a84c;
+  color: #1a1a1a;
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+  z-index: 999;
+}
+
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.back-to-top:hover {
+  transform: translateY(-4px);
 }
